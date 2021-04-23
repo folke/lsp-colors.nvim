@@ -9,9 +9,12 @@ function M.hl(name) return vim.api.nvim_get_hl_by_name(name, true) end
 function M.exists(name)
   if vim.fn.hlexists(name) == 1 then
     local hl = M.hl(name)
-    -- this is needed for groups that only have "cleared"
-    if hl[true] == 6 then return false end
-    return true
+    local count = 0
+    for key, value in pairs(hl) do
+      -- this is needed for groups that only have "cleared"
+      if not (key == true and value == 6) then count = count + 1 end
+    end
+    return count > 0
   end
   return false
 end
