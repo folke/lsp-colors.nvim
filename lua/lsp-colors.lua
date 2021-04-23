@@ -39,7 +39,10 @@ function M.fix(event)
     if lsp == "Information" then coc = "Info" end
     M.link("LspDiagnosticsDefault" .. lsp, { "Coc" .. coc .. "Sign" }, "guifg=" .. config[lsp])
     M.link("LspDiagnosticsVirtualText" .. lsp, { "LspDiagnosticsDefault" .. lsp })
-    local color = string.format("#%06x", M.hl("LspDiagnosticsDefault" .. lsp).foreground)
+
+    local color = defaults[lsp]
+    local hl = M.hl("LspDiagnosticsDefault" .. lsp)
+    if hl and hl.foreground then color = string.format("#%06x", hl.foreground) end
     M.link("LspDiagnosticsUnderline" .. lsp, {}, "gui=undercurl guisp=" .. color)
   end
 
