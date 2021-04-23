@@ -28,7 +28,8 @@ function M.link(group, fallbacks, default)
   end
 end
 
-function M.fix()
+function M.fix(event)
+  -- dump({ fix = event })
   -- Default Groups
   for _, lsp in pairs({ "Error", "Warning", "Information", "Hint" }) do
     local coc = lsp
