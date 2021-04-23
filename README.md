@@ -37,7 +37,7 @@ use 'folke/lsp-colors.nvim'
 
 Nothing special. Just load a `colorscheme` as usual 🙂
 
-## Configuration
+## ⚙️ Configuration
 
 LSP Colors works out of the box, but you can set the default colors that will be used in case a theme doesn't have LSP nor Coc highlight groups.
 
