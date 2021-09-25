@@ -4,6 +4,10 @@ local defaults = { Error = "#db4b4b", Warning = "#e0af68", Information = "#0db9d
                    Hint = "#10B981" }
 local config = {}
 
+function M.translate(group)
+  return group
+end
+
 function M.hl(name) return vim.api.nvim_get_hl_by_name(name, true) end
 
 function M.exists(name)
