@@ -9,6 +9,7 @@ function M.translate(group)
 end
 
 function M.hl(name)
+  name = M.translate(name)
   return vim.api.nvim_get_hl_by_name(name, true)
 end
 
@@ -26,6 +27,7 @@ function M.exists(name)
 end
 
 function M.link(group, fallbacks, default)
+  group = M.translate(group)
   if not M.exists(group) then
     for _, fallback in pairs(fallbacks) do
       if M.exists(fallback) then
