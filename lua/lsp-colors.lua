@@ -8,7 +8,9 @@ function M.translate(group)
   return group
 end
 
-function M.hl(name) return vim.api.nvim_get_hl_by_name(name, true) end
+function M.hl(name)
+  return vim.api.nvim_get_hl_by_name(name, true)
+end
 
 function M.exists(name)
   if vim.fn.hlexists(name) == 1 then
