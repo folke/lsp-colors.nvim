@@ -39,6 +39,7 @@ function M.link(group, fallbacks, default)
   group = M.translate(group)
   if not M.exists(group) then
     for _, fallback in pairs(fallbacks) do
+      fallback = M.translate(fallback)
       if M.exists(fallback) then
         vim.cmd("hi link " .. group .. " " .. fallback)
         return
