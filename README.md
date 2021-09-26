@@ -7,7 +7,7 @@ Automatically creates missing LSP diagnostics highlight groups for color schemes
 
 ## ✨ Features
 
-+ supports the latest Neovim 0.5 LSP highlight groups
++ supports the latest Neovim 0.5 and 0.6 (HEAD) LSP highlight groups
 + support **any** colorscheme like [Nord](https://github.com/arcticicestudio/nord-vim) and [Gruvbox](https://github.com/morhetz/gruvbox)
 + existing highlight groups from themes will never be overwritten
 + tries to use [coc.nvim](https://github.com/neoclide/coc.nvim) groups if they are defined in the theme
