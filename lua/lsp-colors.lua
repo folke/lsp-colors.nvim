@@ -5,6 +5,10 @@ local defaults = { Error = "#db4b4b", Warning = "#e0af68", Information = "#0db9d
 local config = {}
 
 function M.translate(group)
+  if vim.fn.has("nvim-0.6.0") == 0 then
+    return group
+  end
+
   if not string.match(group, "^LspDiagnostics") then
     return group
   end
