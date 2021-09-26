@@ -5,7 +5,16 @@ local defaults = { Error = "#db4b4b", Warning = "#e0af68", Information = "#0db9d
 local config = {}
 
 function M.translate(group)
-  return group
+  if not string.match(group, "^LspDiagnostics") then
+    return group
+  end
+
+  local translated = group
+  translated = string.gsub(translated, "^LspDiagnosticsDefault", "Diagnostic")
+  translated = string.gsub(translated, "^LspDiagnostics", "Diagnostic")
+  translated = string.gsub(translated, "Warning$", "Warn")
+  translated = string.gsub(translated, "Information$", "Info")
+  return translated
 end
 
 function M.hl(name)
