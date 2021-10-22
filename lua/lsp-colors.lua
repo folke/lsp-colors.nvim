@@ -4,7 +4,27 @@ local defaults = { Error = "#db4b4b", Warning = "#e0af68", Information = "#0db9d
                    Hint = "#10B981" }
 local config = {}
 
-function M.hl(name) return vim.api.nvim_get_hl_by_name(name, true) end
+function M.translate(group)
+  if vim.fn.has("nvim-0.6.0") == 0 then
+    return group
+  end
+
+  if not string.match(group, "^LspDiagnostics") then
+    return group
+  end
+
+  local translated = group
+  translated = string.gsub(translated, "^LspDiagnosticsDefault", "Diagnostic")
+  translated = string.gsub(translated, "^LspDiagnostics", "Diagnostic")
+  translated = string.gsub(translated, "Warning$", "Warn")
+  translated = string.gsub(translated, "Information$", "Info")
+  return translated
+end
+
+function M.hl(name)
+  name = M.translate(name)
+  return vim.api.nvim_get_hl_by_name(name, true)
+end
 
 function M.exists(name)
   if vim.fn.hlexists(name) == 1 then
@@ -20,8 +40,10 @@ function M.exists(name)
 end
 
 function M.link(group, fallbacks, default)
+  group = M.translate(group)
   if not M.exists(group) then
     for _, fallback in pairs(fallbacks) do
+      fallback = M.translate(fallback)
       if M.exists(fallback) then
         vim.cmd("hi link " .. group .. " " .. fallback)
         return
