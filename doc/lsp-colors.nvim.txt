@@ -1,4 +1,4 @@
-*lsp-colors.nvim.txt*     For Neovim >= 0.8.0     Last change: 2023 January 04
+*lsp-colors.nvim.txt*     For Neovim >= 0.8.0     Last change: 2023 January 23
 
 ==============================================================================
 Table of Contents                          *lsp-colors.nvim-table-of-contents*
