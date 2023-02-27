@@ -1,3 +1,7 @@
+> This plugin has been archived, since it should be no longer needed. If any colorscheme stil l doesn't support the new diagnostics highlight groups for Neovim, then just post an issue or a PR to fix it there.
+
+----
+
 
 # 🌈 LSP Colors
 
